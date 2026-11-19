@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ==================================================
+     1. INFORMASI WEBSITE
+     Ubah judul website sesuai nama pasangan.
+================================================== -->
+<title>Wedding Invitation | Alya & Raka</title>
+
+<!-- FONT WEBSITE -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- ==================================================
+     2. CSS / DESAIN WEBSITE
+================================================== -->
+<style>
+
+/* WARNA UTAMA WEBSITE */
+:root {
+  --cream: #f8f5ef;
+  --white: #fffefa;
+  --sage: #687c68;
+  --dark: #29382d;
+  --gold: #b69b69;
+  --gray: #777;
+  --serif: 'Playfair Display', serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* PEMBATAS LEBAR KONTEN */
+.container {
+  width: min(90%, 1050px);
+  margin: auto;
+}
+
+section {
+  padding: 90px 0;
+  text-align: center;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(35px, 5vw, 48px);
+  font-weight: 400;
+  margin: 10px 0 18px;
+}
+
+.description {
+  max-width: 600px;
+  margin: auto;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* TOMBOL */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 30px;
+  border: 1px solid var(--sage);
+  background: var(--sage);
+  color: white;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--dark);
+  transform: translateY(-3px);
+}
+
+.btn-light {
+  background: transparent;
+  color: var(--sage);
+}
+
+.btn-light:hover {
+  color: white;
+}
+
+/* ==================================================
+   3. COVER / PEMBUKA UNDANGAN
+================================================== */
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+
+  background:
+    linear-gradient(#18271c88, #18271c99),
+    url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+
+  color: white;
+  transition: .8s;
+}
+
+.cover.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cover-content {
+  max-width: 650px;
+}
+
+.cover h1 {
+  font-family: var(--serif);
+  font-size: clamp(55px, 10vw, 90px);
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.cover p {
+  font-size: 14px;
+}
+
+.cover .guest {
+  font-weight: 700;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.cover .btn {
+  background: var(--cream);
+  color: var(--dark);
+  border: none;
+  margin-top: 25px;
+}
+
+/* ==================================================
+   4. HERO / FOTO UTAMA
+================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(#17271c55, #17271c55),
+    url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+  color: white;
+  padding: 30px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(55px, 10vw, 100px);
+  font-weight: 400;
+}
+
+.hero p {
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.hero .subtitle {
+  color: #e9dfc9;
+}
+
+/* ==================================================
+   5. QUOTE / KUTIPAN
+================================================== */
+.quote {
+  background: var(--white);
+}
+
+.quote-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  max-width: 700px;
+  margin: auto;
+  font-style: italic;
+}
+
+/* ==================================================
+   6. PROFIL MEMPELAI
+================================================== */
+.couple {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 750px;
+  margin: 45px auto 0;
+}
+
+.person img {
+  height: 380px;
+  border-radius: 180px 180px 10px 10px;
+}
+
+.person h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.person p {
+  color: var(--gray);
+  font-size: 13px;
+}
+
+/* ==================================================
+   7. COUNTDOWN
+================================================== */
+.countdown-section {
+  background: var(--dark);
+  color: white;
+}
+
+.countdown-section .subtitle,
+.countdown-section .description {
+  color: #d3d9ce;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.time {
+  width: 105px;
+  padding: 20px 10px;
+  border: 1px solid #ffffff55;
+  border-radius: 12px;
+}
+
+.time strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 35px;
+}
+
+.time span {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* ==================================================
+   8. DETAIL ACARA
+================================================== */
+.events {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.event-card {
+  background: var(--white);
+  padding: 35px 20px;
+  border: 1px solid #e9e3d8;
+  border-radius: 15px;
+}
+
+.event-card .icon {
+  color: var(--gold);
+  font-size: 35px;
+}
+
+.event-card h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  margin: 10px;
+}
+
+.event-card p {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+/* ==================================================
+   9. GALERI FOTO
+================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.gallery img {
+  height: 280px;
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* ==================================================
+   10. GOOGLE MAPS
+================================================== */
+.map {
+  margin: 35px auto;
+  max-width: 850px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+}
+
+/* ==================================================
+   11. RSVP / UCAPAN TAMU
+================================================== */
+.form-box {
+  background: var(--white);
+  max-width: 600px;
+  padding: 30px;
+  margin: 35px auto;
+  border-radius: 15px;
+  text-align: left;
+  border: 1px solid #e9e3d8;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--sans);
+}
+
+.form-group textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+.form-box button {
+  width: 100%;
+}
+
+.notice {
+  text-align: center;
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 12px;
+}
+
+.wish {
+  max-width: 600px;
+  margin: 15px auto;
+  text-align: left;
+  background: var(--white);
+  padding: 15px;
+  border-left: 3px solid var(--sage);
+  border-radius: 5px;
+}
+
+/* ==================================================
+   12. AMPLOP DIGITAL
+================================================== */
+.gift {
+  max-width: 500px;
+  margin: 35px auto;
+  background: var(--white);
+  padding: 35px;
+  border-radius: 15px;
+  border: 1px solid #e9e3d8;
+}
+
+.gift h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+}
+
+.gift .account {
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+
+/* ==================================================
+   13. FOOTER
+================================================== */
+footer {
+  background: #e9e8df;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+footer h2 {
+  color: var(--sage);
+}
+
+/* ==================================================
+   14. TOMBOL MUSIK
+================================================== */
+.music {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: var(--sage);
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 15px #0003;
+}
+
+/* ==================================================
+   15. RESPONSIVE MOBILE
+================================================== */
+@media(max-width:650px) {
+
+  section {
+    padding: 65px 0;
+  }
+
+  .couple,
+  .events {
+    grid-template-columns: 1fr;
+  }
+
+  .person img {
+    height: 350px;
+    max-width: 280px;
+    margin: auto;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery img {
+    height: 190px;
+  }
+
+  .map iframe {
+    height: 300px;
+  }
+
+  .time {
+    width: 75px;
+  }
+
+  .time strong {
+    font-size: 27px;
+  }
+}
+
+</style>
+</head>
+
+<body class="locked">
+
+<!-- ==================================================
+     16. COVER UNDANGAN
+================================================== -->
+<div class="cover" id="cover">
+  <div class="cover-content">
+    <div class="subtitle">The Wedding Of</div>
+    <h1>Dian & Reza</h1>
+    <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+    <div class="guest" id="guestName">Tamu Undangan</div>
+    <button class="btn" onclick="openInvitation()">
+      Buka Undangan
+    </button>
+  </div>
+</div>
+
+<!-- ==================================================
+     17. HERO SECTION
+================================================== -->
+<header class="hero">
+  <div>
+    <div class="subtitle">We Are Getting Married</div>
+    <h1>Dian & Reza</h1>
+    <p>20 Desember 2027</p>
+    <a href="#mempelai" class="btn">Lihat Undangan</a>
+  </div>
+</header>
+
+<!-- ==================================================
+     18. QUOTE
+================================================== -->
+<section class="quote">
+  <div class="container">
+    <div class="subtitle">Our Love Story</div>
+    <h2>Awal Cerita Kami</h2>
+    <p class="quote-text">
+      "Dari pertemuan tanpa sengaja membuat jarak hanya 5 langkah, oh memang dia orang yang ku suka cihiuuyyy."
+    </p>
+    <p style="margin-top:15px">QS. (surat/hadis jika perlu)</p>
+  </div>
+</section>
+
+<!-- ==================================================
+     19. PROFIL MEMPELAI
+================================================== -->
+<section id="mempelai">
+  <div class="container">
+    <div class="subtitle">The Bride & Groom</div>
+    <h2>Mempelai</h2>
+    <p class="description">
+      Dengan memohon rahmat Tuhan Yang Maha Esa,
+      kami mengundang Anda untuk menghadiri hari bahagia kami.
+    </p>
+
+    <div class="couple">
+
+      <div class="person">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85" alt="Mempelai wanita">
+        <h3>Dian Nuraini</h3>
+        <p>Putri dari Bapak Agung & Ibu Atun Ibu</p>
+      </div>
+
+      <div class="person">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=85" alt="Mempelai pria">
+        <h3>Muhammad Reza Rahamtulloh</h3>
+        <p>Putra dari Bapak Erwin & Ibu Ria</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     20. COUNTDOWN
+================================================== -->
+<section class="countdown-section">
+  <div class="container">
+    <div class="subtitle">Save The Date</div>
+    <h2>Menuju Hari Bahagia</h2>
+    <p class="description">Kami menantikan kehadiran Anda.</p>
+
+    <div class="countdown">
+      <div class="time"><strong id="days">00</strong><span>HARI</span></div>
+      <div class="time"><strong id="hours">00</strong><span>JAM</span></div>
+      <div class="time"><strong id="minutes">00</strong><span>MENIT</span></div>
+      <div class="time"><strong id="seconds">00</strong><span>DETIK</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     21. DETAIL ACARA
+================================================== -->
+<section id="acara">
+  <div class="container">
+    <div class="subtitle">Wedding Celebration</div>
+    <h2>Detail Acara</h2>
+
+    <div class="events">
+
+      <div class="event-card">
+        <div class="icon">♡</div>
+        <h3>Akad Nikah</h3>
+        <p>Sabtu, 20 Desember 2027</p>
+        <p>08.00 WIB - Selesai</p>
+        <p>Gedung Contoh, Jakarta</p>
+      </div>
+
+      <div class="event-card">
+        <div class="icon">✧</div>
+        <h3>Resepsi</h3>
+        <p>Sabtu, 20 Desember 2026</p>
+        <p>11.00 - 14.00 WIB</p>
+        <p>Gedung Contoh, Jakarta</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     22. GALERI FOTO
+================================================== -->
+<section class="quote">
+  <div class="container">
+    <div class="subtitle">Our Memories</div>
+    <h2>Galeri Foto</h2>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=85" alt="Foto 1">
+      <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=85" alt="Foto 2">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=85" alt="Foto 3">
+      <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=85" alt="Foto 4">
+      <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=700&q=85" alt="Foto 5">
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=85" alt="Foto 6">
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     23. GOOGLE MAPS
+     Ganti lokasi pada URL dengan lokasi gedung sebenarnya.
+================================================== -->
+<section id="lokasi">
+  <div class="container">
+    <div class="subtitle">Find Our Location</div>
+    <h2>Lokasi Acara</h2>
+    <p class="description">Gedung Contoh, Jakarta, Indonesia</p>
+
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Balai+Kartini+Jakarta&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <a class="btn" target="_blank"
+       href="https://www.google.com/maps/search/?api=1&query=Balai+Kartini+Jakarta">
+       Buka Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- ==================================================
+     24. RSVP / KONFIRMASI KEHADIRAN
+================================================== -->
+<section class="quote" id="rsvp">
+  <div class="container">
+    <div class="subtitle">RSVP</div>
+    <h2>Konfirmasi Kehadiran</h2>
+
+    <form class="form-box" id="rsvpForm">
+
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input id="rsvpName" required placeholder="Masukkan nama">
+      </div>
+
+      <div class="form-group">
+        <label>Konfirmasi Kehadiran</label>
+        <select id="attendance" required>
+          <option value="">Pilih jawaban</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Jumlah Tamu</label>
+        <select id="guestCount">
+          <option>1 Orang</option>
+          <option>2 Orang</option>
+          <option>3 Orang</option>
+          <option>4 Orang</option>
+        </select>
+      </div>
+
+      <button class="btn" type="submit">
+        Kirim RSVP WhatsApp
+      </button>
+
+      <p class="notice">
+        Konfirmasi akan dikirim ke WhatsApp penerima.
+      </p>
+
+    </form>
+  </div>
+</section>
+
+<!-- ==================================================
+     25. UCAPAN DAN DOA
+     Versi demo menggunakan penyimpanan browser.
+================================================== -->
+<section>
+  <div class="container">
+    <div class="subtitle">Wedding Wishes</div>
+    <h2>Ucapan & Doa</h2>
+
+    <form class="form-box" id="wishForm">
+
+      <div class="form-group">
+        <label>Nama</label>
+        <input id="wishName" required placeholder="Nama Anda">
+      </div>
+
+      <div class="form-group">
+        <label>Ucapan</label>
+        <textarea id="wishMessage" required
+          placeholder="Tuliskan doa dan ucapan..."></textarea>
+      </div>
+
+      <button class="btn" type="submit">
+        Kirim Ucapan
+      </button>
+
+    </form>
+
+    <div id="wishesList"></div>
+    <p class="notice">
+      Ucapan versi demo tersimpan di browser masing-masing.
+    </p>
+  </div>
+</section>
+
+<!-- ==================================================
+     26. AMPLOP DIGITAL
+================================================== -->
+<section class="quote" id="amplop">
+  <div class="container">
+    <div class="subtitle">Wedding Gift</div>
+    <h2>Amplop Digital</h2>
+
+    <p class="description">
+      Doa restu Anda adalah hadiah terindah bagi kami.
+      Namun apabila ingin memberikan tanda kasih:
+    </p>
+
+    <div class="gift">
+      <h3 id="bankName">Bank BCA</h3>
+      <div class="account" id="accountNumber">1234567890</div>
+      <p>a.n. <span id="accountHolder">Alya Putri</span></p>
+
+      <button class="btn btn-light" id="copyAccount">
+        Salin Nomor Rekening
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     27. FOOTER
+================================================== -->
+<footer>
+  <div class="subtitle">Thank You</div>
+  <h2>Alya & Raka</h2>
+  <p>Terima kasih atas doa dan kehadiran Anda.</p>
+</footer>
+
+<!-- ==================================================
+     28. MUSIK LATAR
+     Simpan file musik dengan nama music.mp3.
+================================================== -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" id="musicButton" aria-label="Musik">♫</button>
+
+<!-- ==================================================
+     29. JAVASCRIPT / KONFIGURASI UTAMA
+     Bagian ini paling sering diedit.
+================================================== -->
+<script>
+
+// DATA UTAMA UNDANGAN
+const CONFIG = {
+
+  // TANGGAL ACARA
+  eventDate: "2026-12-20T08:00:00+07:00",
+
+  // NOMOR WHATSAPP PENERIMA RSVP
+  // Format Indonesia: 628xxxxxxxxxx
+  whatsapp: "6281234567890",
+
+  // AMPLOP DIGITAL
+  bank: "Bank BCA",
+  rekening: "1234567890",
+  pemilik: "Alya Putri"
+
+};
+
+/* ==================================================
+   30. NAMA TAMU OTOMATIS DARI LINK
+   Contoh: index.html?to=Bapak%20Budi
+================================================== */
+const urlParams = new URLSearchParams(location.search);
+const guest = urlParams.get("to");
+
+if (guest) {
+  document.getElementById("guestName").textContent = guest;
+}
+
+/* ==================================================
+   31. BUKA UNDANGAN
+================================================== */
+async function openInvitation() {
+
+  document.getElementById("cover").classList.add("hide");
+  document.body.classList.remove("locked");
+
+  const audio = document.getElementById("music");
+
+  try {
+    await audio.play();
+    document.getElementById("musicButton").textContent = "Ⅱ";
+  } catch (error) {
+    // Pengunjung dapat memutar musik melalui tombol musik.
+  }
+
+}
+
+/* ==================================================
+   32. COUNTDOWN OTOMATIS
+================================================== */
+function updateCountdown() {
+
+  const target = new Date(CONFIG.eventDate).getTime();
+  const now = Date.now();
+  const distance = target - now;
+
+  const fields = ["days", "hours", "minutes", "seconds"];
+
+  if (distance <= 0) {
+    fields.forEach(id => {
+      document.getElementById(id).textContent = "00";
+    });
+    return;
+  }
+
+  const values = [
+    Math.floor(distance / 86400000),
+    Math.floor(distance % 86400000 / 3600000),
+    Math.floor(distance % 3600000 / 60000),
+    Math.floor(distance % 60000 / 1000)
+  ];
+
+  fields.forEach((id, index) => {
+    document.getElementById(id).textContent =
+      String(values[index]).padStart(2, "0");
+  });
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ==================================================
+   33. KONTROL MUSIK
+================================================== */
+const audio = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+musicButton.addEventListener("click", async () => {
+
+  if (audio.paused) {
+    try {
+      await audio.play();
+      musicButton.textContent = "Ⅱ";
+    } catch (error) {
+      alert("Periksa file music.mp3");
+    }
+  } else {
+    audio.pause();
+    musicButton.textContent = "♫";
+  }
+
+});
+
+/* ==================================================
+   34. RSVP WHATSAPP
+================================================== */
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("rsvpName").value;
+  const attendance = document.getElementById("attendance").value;
+  const count = document.getElementById("guestCount").value;
+
+  const message =
+    `Halo, saya ${name}. Konfirmasi kehadiran: ${attendance}. Jumlah tamu: ${count}. Terima kasih.`;
+
+  const url =
+    `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank", "noopener");
+
+});
+
+/* ==================================================
+   35. UCAPAN TAMU
+   localStorage hanya menyimpan data di browser lokal.
+================================================== */
+const STORAGE_KEY = "weddingWishes";
+
+function showWishes() {
+
+  const data = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "[]"
+  );
+
+  const list = document.getElementById("wishesList");
+  list.replaceChildren();
+
+  data.slice().reverse().forEach(item => {
+
+    const card = document.createElement("div");
+    card.className = "wish";
+
+    const name = document.createElement("strong");
+    name.textContent = item.name;
+
+    const message = document.createElement("p");
+    message.textContent = item.message;
+
+    card.append(name, message);
+    list.appendChild(card);
+
+  });
+
+}
+
+document.getElementById("wishForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("wishName").value.trim();
+  const message = document.getElementById("wishMessage").value.trim();
+
+  const data = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "[]"
+  );
+
+  data.push({ name, message });
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+  this.reset();
+  showWishes();
+
+  alert("Terima kasih atas ucapan dan doanya!");
+
+});
+
+showWishes();
+
+/* ==================================================
+   36. AMPLOP DIGITAL
+   Menampilkan data rekening dari CONFIG.
+================================================== */
+document.getElementById("bankName").textContent = CONFIG.bank;
+document.getElementById("accountNumber").textContent = CONFIG.rekening;
+document.getElementById("accountHolder").textContent = CONFIG.pemilik;
+
+document.getElementById("copyAccount").addEventListener("click", async () => {
+
+  try {
+
+    await navigator.clipboard.writeText(CONFIG.rekening);
+    alert("Nomor rekening berhasil disalin!");
+
+  } catch (error) {
+
+    alert("Silakan salin nomor rekening secara manual.");
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
